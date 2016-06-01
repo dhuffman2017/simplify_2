@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @item.errors.any? %>
+  <% @item.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Item #<%= @item.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_item/<%= @item.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @item.name %>">
+      </div>
+
+      <!-- Label and input for url_picture -->
+      <div class="form-group">
+        <label for="url_picture" class="control-label">
+          Url picture
+        </label>
+
+        <input type="text" id="url_picture" name="url_picture" placeholder="Url picture" class="form-control" value="<%= @item.url_picture %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @item.description %></textarea>
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @item.location %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @item.status %>">
+      </div>
+
+      <!-- Label and input for posted_by -->
+      <div class="form-group">
+        <label for="posted_by" class="control-label">
+          Posted by
+        </label>
+
+        <input type="text" id="posted_by" name="posted_by" placeholder="Posted by" class="form-control" value="<%= @item.posted_by %>">
+      </div>
+
+      <!-- Label and input for joy_level -->
+      <div class="form-group">
+        <label for="joy_level" class="control-label">
+          Joy level
+        </label>
+
+        <input type="text" id="joy_level" name="joy_level" placeholder="Joy level" class="form-control" value="<%= @item.joy_level %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Item
+      </button>
+      or
+      <a href="/items/<%= @item.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
