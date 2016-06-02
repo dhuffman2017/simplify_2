@@ -8,7 +8,7 @@
   <%= @hate_items = @items.where("joy_level = 'Hate it'")
   @meh_items = @items.where("joy_level = 'Meh'")
   @love_items = @items.where("joy_level = 'I love it!'")
-   %>
+  %>
 </div>
 <div class="row">
   <div class="col-md-12">
@@ -39,7 +39,8 @@
         <!-- <td><%= hate_item.posted_by %></td> -->
         <td><%= hate_item.joy_level %></td>
         <td>
-<input type="date" id="action_date"></input>
+
+          <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= hate_item.action_date %>">
         </td>
         <td>
           <a href="/items/<%= hate_item.id %>/donate" class="btn btn-primary">Donate</a>
@@ -76,7 +77,10 @@
         <!-- <td><%= meh_item.posted_by %></td> -->
         <td><%= meh_item.joy_level %></td>
         <td>
-<input type="date" id="action_date"></input>
+
+          <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= meh_item.action_date %>">
+          <a href="/reduce/<%= meh_item.id %>/action_date" class="btn btn-primary">Save
+          </a>
         </td>
         <td>
           <a href="/items/<%= meh_item.id %>/donate" class="btn btn-primary">Donate
@@ -87,6 +91,10 @@
           <a href="/items/<%= meh_item.id %>/sell" class="btn btn-danger" rel="nofollow">Sell</a>
         </td>
       </tr>
+
+      <%  meh_item.save%>
+
+        
       <% end %>
     </table>
   </div>
