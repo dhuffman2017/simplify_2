@@ -50,8 +50,12 @@
         <label for="category" class="control-label">
           Category
         </label>
-        <input type="text" id="location" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>">
-        
+        <div class="form-control">
+          <%=  select_tag "category", options_for_select( ["","Furniture", "My Clothes", "Kid Stuff", "Random"], :class => "form-control") %>
+
+        </div>
+        <!-- <input type="text" id="location" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>"> -->
+
       </div>
 
       <!-- Label and input for location -->
@@ -64,37 +68,41 @@
       </div>
 
       <!-- Label and input for status -->
-      <div class="form-group">
-        <label for="status" class="control-label">
-          Status
-        </label>
+      <!-- <div class="form-group">
+      <label for="status" class="control-label">
+      Status
+    </label>
 
-        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @item.status %>">
-      </div>
+    <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @item.status %>">
+  </div> -->
 
-      <!-- Label and input for posted_by -->
-      <div class="form-group">
-        <label for="posted_by" class="control-label">
-          Posted by
-        </label>
+  <!-- Label and input for posted_by -->
+  <div class="form-group">
+    <label for="posted_by" class="control-label">
+      Posted by
+    </label>
 
-        <input type="text" id="posted_by" name="posted_by" placeholder="Posted by" class="form-control" value="<%= @item.posted_by %>">
-      </div>
-
-      <!-- Label and input for joy_level -->
-      <div class="form-group">
-        <label for="joy_level" class="control-label">
-          Joy level
-        </label>
-
-        <input type="text" id="joy_level" name="joy_level" placeholder="Joy level" class="form-control" value="<%= @item.joy_level %>">
-      </div>
-
-      <button class="btn btn-success">
-        Create Item
-      </button>
-      or
-      <a href="/items">Cancel</a>
-    </form>
+    <input type="text" id="posted_by" name="posted_by" placeholder="Posted by" class="form-control" value="<%= @item.posted_by %>">
   </div>
+
+  <!-- Label and input for joy_level -->
+  <div class="form-group">
+
+    <label for="joy_level" class="control-label">
+      Joy level
+    </label>
+    <div class="form-control">
+      <%=  select_tag "joy_level", options_for_select( ["", "Meh", "I love it!", "Hate it"], :class => "form-control") %>
+
+    </div>
+  </div>
+  </div>
+
+<button class="btn btn-success">
+  Create Item
+</button>
+or
+<a href="/items">Cancel</a>
+</form>
+</div>
 </div>

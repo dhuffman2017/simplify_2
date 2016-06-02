@@ -32,9 +32,10 @@ get "/reduce", :controller => 'reduce', :action => "index"
   get "/delete_item/:id", :controller => "items", :action => "destroy"
   #------------------------------
   get "/items/:id/donate", :controller => "reduce", :action => "donate"
-
   get "/items/:id/trash", :controller => "reduce", :action => "trash"
   get "/items/:id/sell", :controller => "reduce", :action => "sell"
+  get "/items/:id/", :controller => "reduce", :action => "action_date"
+get "/update_item/:id", :controller => "reduce", :action => "update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

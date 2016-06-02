@@ -50,9 +50,10 @@
         <label for="category" class="control-label">
           Category
         </label>
+        <div class="form-control">
+          <%=  select_tag "category", options_for_select( ["","Furniture", "My Clothes", "Kid Stuff", "Random"], :class => "form-control") %>
 
-        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>">
-      </div>
+        </div>
 
       <!-- Label and input for location -->
       <div class="form-group">
@@ -83,12 +84,15 @@
 
       <!-- Label and input for joy_level -->
       <div class="form-group">
-        <label for="joy_level" class="control-label">
-          Joy level
-        </label>
 
-        <input type="text" id="joy_level" name="joy_level" placeholder="Joy level" class="form-control" value="<%= @item.joy_level %>">
-      </div>
+          <label for="joy_level" class="control-label">
+            Joy level
+          </label>
+        <div class="form-control">
+          <%=  select_tag "joy_level", options_for_select( ["", "Meh", "I love it!", "Hate it"], :class => "form-control") %>
+
+        </div>
+        </div>
 
       <button class="btn btn-warning">
         Update Item

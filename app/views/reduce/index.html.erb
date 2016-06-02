@@ -5,9 +5,9 @@
   </h1>
 </div>
 <div style='display:none'>
-  <%= @hate_items = @items.where("joy_level = 'hate'")
-  @meh_items = @items.where("joy_level = 'meh'")
-  @love_items = @items.where("joy_level = 'love'")
+  <%= @hate_items = @items.where("joy_level = 'Hate it'")
+  @meh_items = @items.where("joy_level = 'Meh'")
+  @love_items = @items.where("joy_level = 'I love it!'")
    %>
 </div>
 <div class="row">
@@ -19,9 +19,12 @@
         <th>Description</th>
         <th>Category</th>
         <th>Location</th>
-        <th>Status</th>
+        <!-- <th>Status</th> -->
         <!-- <th>Posted by</th> -->
-        <th>Brings Joy?</th>
+        <th>Joy Level</th>
+        <th>
+          Purge Date!
+        </th>
         <th>Actions</th>
       </tr>
 
@@ -32,9 +35,12 @@
         <td><%= hate_item.description %></td>
         <td><%= hate_item.category %></td>
         <td><%= hate_item.location %></td>
-        <td><%= hate_item.status %></td>
+        <!-- <td><%= hate_item.status %></td> -->
         <!-- <td><%= hate_item.posted_by %></td> -->
         <td><%= hate_item.joy_level %></td>
+        <td>
+<input type="date" id="action_date"></input>
+        </td>
         <td>
           <a href="/items/<%= hate_item.id %>/donate" class="btn btn-primary">Donate</a>
           <a href="/items/<%= hate_item.id %>/trash" class="btn btn-warning">Trash</a>
@@ -50,9 +56,12 @@
         <th>Description</th>
         <th>Category</th>
         <th>Location</th>
-        <th>Status</th>
+        <!-- <th>Status</th> -->
         <!-- <th>Posted by</th> -->
-        <th>Brings Joy?</th>
+        <th>Joy Level</th>
+        <th>
+          Purge Date!
+        </th>
         <th>Actions</th>
       </tr>
 
@@ -63,9 +72,12 @@
         <td><%= meh_item.description %></td>
         <td><%= meh_item.category %></td>
         <td><%= meh_item.location %></td>
-        <td><%= meh_item.status %></td>
+        <!-- <td><%= meh_item.status %></td> -->
         <!-- <td><%= meh_item.posted_by %></td> -->
         <td><%= meh_item.joy_level %></td>
+        <td>
+<input type="date" id="action_date"></input>
+        </td>
         <td>
           <a href="/items/<%= meh_item.id %>/donate" class="btn btn-primary">Donate
           </a>

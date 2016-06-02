@@ -8,6 +8,17 @@ class ReduceController < ApplicationController
   #     :start_date
   #   end
   # end
+def action_date
+@item = Item.find(params[:id])
+@item.action_date = params[:action_date]
+
+if @item.save
+  redirect_to "/reduce", :notice => "Item updated successfully."
+else
+  render 'index'
+end
+
+end
   def donate
   render 'donate'
   end
