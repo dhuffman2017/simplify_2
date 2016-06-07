@@ -12,7 +12,6 @@ end
 # Route for Welcome pages
 
 get "/welcome", :controller => 'sessions', :action => "new"
-get "/reduce", :controller => 'reduce', :action => "index"
 
 
   # Routes for the Item resource:
@@ -27,15 +26,17 @@ get "/reduce", :controller => 'reduce', :action => "index"
   # UPDATE
   get "/items/:id/edit", :controller => "items", :action => "edit"
   post "/update_item/:id", :controller => "items", :action => "update"
+  get "/reduce", :controller => "items", :action => "reduce"
+  # post "/update_action_date_item/:id", :controller => "items", :action => "update_action_date"
 
   # DELETE
   get "/delete_item/:id", :controller => "items", :action => "destroy"
   #------------------------------
-  get "/items/:id/donate", :controller => "reduce", :action => "donate"
-  get "/items/:id/trash", :controller => "reduce", :action => "trash"
-  get "/items/:id/sell", :controller => "reduce", :action => "sell"
-  get "/reduce/:id/action_date", :controller => "reduce", :action => "action_date"
-  get "/reduce/action_date", :controller => "reduce", :action => "index"
+  # get "/items/:id/donate", :controller => "reduce", :action => "donate"
+  # get "/items/:id/trash", :controller => "reduce", :action => "trash"
+  # get "/items/:id/sell", :controller => "reduce", :action => "sell"
+  # get "/reduce/:id/action_date", :controller => "reduce", :action => "action_date"
+  # get "/reduce/action_date", :controller => "reduce", :action => "index"
 
 # get "/update_item/:id", :controller => "reduce", :action => "update"
 

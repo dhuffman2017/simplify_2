@@ -68,41 +68,43 @@
       </div>
 
       <!-- Label and input for status -->
-      <!-- <div class="form-group">
-      <label for="status" class="control-label">
-      Status
-    </label>
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
 
-    <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @item.status %>">
-  </div> -->
+        <div class="form-control">
+          <%=  select_tag "status", options_for_select( ["", "Donate", "Trash", "Sell"], :class => "form-control") %>
+        </div>
+      </div>
 
-  <!-- Label and input for posted_by -->
-  <div class="form-group">
-    <label for="posted_by" class="control-label">
-      Posted by
-    </label>
+      <!-- Label and input for posted_by -->
+      <div class="form-group">
+        <label for="posted_by" class="control-label">
+          Posted by
+        </label>
 
-    <input type="text" id="posted_by" name="posted_by" placeholder="Posted by" class="form-control" value="<%= @item.posted_by %>">
-  </div>
+        <input type="text" id="posted_by" name="posted_by" placeholder="Posted by" class="form-control" value="<%= @item.posted_by %>">
+      </div>
 
-  <!-- Label and input for joy_level -->
-  <div class="form-group">
+      <!-- Label and input for joy_level -->
+      <div class="form-group">
 
-    <label for="joy_level" class="control-label">
-      Joy level
-    </label>
-    <div class="form-control">
-      <%=  select_tag "joy_level", options_for_select( ["", "Meh", "I love it!", "Hate it"], :class => "form-control") %>
+        <label for="joy_level" class="control-label">
+          Joy level
+        </label>
+        <div class="form-control">
+          <%=  select_tag "joy_level", options_for_select( ["", "Meh", "I love it!", "Hate it"], :class => "form-control") %>
 
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
 
-<button class="btn btn-success">
-  Create Item
-</button>
-or
-<a href="/items">Cancel</a>
-</form>
+    <button class="btn btn-success">
+      Create Item
+    </button>
+    or
+    <a href="/items">Cancel</a>
+  </form>
 </div>
 </div>

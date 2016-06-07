@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+
   def new
     @item = Item.new
   end
@@ -48,6 +49,7 @@ class ItemsController < ApplicationController
     @item.status = params[:status]
     @item.posted_by = params[:posted_by]
     @item.joy_level = params[:joy_level]
+    @item.action_date = params[:action_date]
 
     if @item.save
       redirect_to "/items", :notice => "Item updated successfully."
@@ -55,6 +57,31 @@ class ItemsController < ApplicationController
       render 'edit'
     end
   end
+  def reduce
+    @all_items = Item.all
+    @items = @all_items.where("posted_by = ?", current_user.id)
+    render 'reduce'
+  end
+  def update_action_date
+    @item = Item.find(params[:id])
+
+    @item.name = params[:name]
+    @item.url_picture = params[:url_picture]
+    @item.description = params[:description]
+    @item.category = params[:category]
+    @item.location = params[:location]
+    @item.status = params[:status]
+    @item.posted_by = params[:posted_by]
+    @item.joy_level = params[:joy_level]
+    @item.action_date = params[:action_date]
+
+    if @item.save
+      redirect_to "/reduce", :notice => "Item updated successfully."
+    else
+      redirect_to "/reduce", :notice => "Item not updated!"
+    end
+  end
+
 
   def destroy
     @item = Item.find(params[:id])

@@ -21,12 +21,14 @@ class ReduceController < ApplicationController
     @item.status = params[:status]
     @item.posted_by = params[:posted_by]
     @item.joy_level = params[:joy_level]
-
+    @item.action_date = params[:action_date]
 # if @item.save
 #       redirect_to "/reduce", :notice => "Item updated successfully."
 #     else
 #       redirect_to "/reduce", :notice => "Date not updated!"
 #   end
+  @item.save
+  render 'index'
 end
   def donate
     render 'donate'
