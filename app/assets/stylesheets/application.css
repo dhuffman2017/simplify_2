@@ -1,9 +1,10 @@
 
 .live-simply {
+  text-align: center;
     background: url("images/main-hero.jpg") no-repeat center center;
     background-size: cover;
     color: white;
-    height: 500px;
+    height: 200px;
     padding-top: 10px;
     padding-bottom: 70px;
 }
