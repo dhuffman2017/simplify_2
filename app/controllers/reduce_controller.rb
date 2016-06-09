@@ -29,27 +29,27 @@ class ReduceController < ApplicationController
   end
 
 
-  def action_date
-    @item = Item.find(params[:id])
-    # @item.action_date = params[:action_date]
-
-    @item.name = params[:name]
-    @item.url_picture = params[:url_picture]
-    @item.description = params[:description]
-    @item.category = params[:category]
-    @item.location = params[:location]
-    @item.status = params[:status]
-    @item.posted_by = params[:posted_by]
-    @item.joy_level = params[:joy_level]
-    @item.action_date = params[:action_date]
+  # def action_date
+  #   @item = Item.find(params[:id])
+  #   # @item.action_date = params[:action_date]
+  #
+  #   @item.name = params[:name]
+  #   @item.url_picture = params[:url_picture]
+  #   @item.description = params[:description]
+  #   @item.category = params[:category]
+  #   @item.location = params[:location]
+  #   @item.status = params[:status]
+  #   @item.posted_by = params[:posted_by]
+  #   @item.joy_level = params[:joy_level]
+  #   @item.action_date = params[:action_date]
 # if @item.save
 #       redirect_to "/reduce", :notice => "Item updated successfully."
 #     else
 #       redirect_to "/reduce", :notice => "Date not updated!"
 #   end
-  @item.save
-  render 'index'
-end
+#   @item.save
+#   render 'index'
+# end
   def donate
     render 'donate'
   end

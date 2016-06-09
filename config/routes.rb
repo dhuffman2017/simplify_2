@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
-devise_scope :user do
-   authenticated :user do
-     root 'sessions#new'
-   end
-  unauthenticated do
-    root 'devise/sessions#new', as: 'unauthenticated_root'
+  devise_scope :user do
+    authenticated :user do
+      root 'sessions#new'
+    end
+    unauthenticated do
+      root 'devise/sessions#new', as: 'unauthenticated_root'
+    end
   end
-end
-#root 'devise/sessions#new'
-# Route for Welcome pages
+  #root 'devise/sessions#new'
+  # Route for Welcome pages
 
-get "/welcome", :controller => 'sessions', :action => "new"
+  get "/welcome", :controller => 'sessions', :action => "new"
 
 
 
@@ -32,18 +32,19 @@ get "/welcome", :controller => 'sessions', :action => "new"
   get "/delete_item/:id", :controller => "items", :action => "destroy"
   #------------------------------
 
-#Routs for the Reduce function
+  #Routs for the Reduce function
   # READ
   get "/reduce", :controller => 'reduce', :action => "index"
   get "/items/:id/donate", :controller => "reduce", :action => "donate"
   get "/items/:id/trash", :controller => "reduce", :action => "trash"
   get "/items/:id/sell", :controller => "reduce", :action => "sell"
-#UPDATE
+  #UPDATE
+  get "/reduce/:id", :controller => 'reduce', :action => "index" 
   post "/update_item/:id", :controller => "reduce", :action => "update"
 
   # get "/reduce/:id/action_date", :controller => "reduce", :action => "action_date"
   # get "/reduce/action_date", :controller => "reduce", :action => "index"
-# get "/update_item/:id", :controller => "reduce", :action => "update"
+  # get "/update_item/:id", :controller => "reduce", :action => "update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
