@@ -12,7 +12,7 @@ end
 # Route for Welcome pages
 
 get "/welcome", :controller => 'sessions', :action => "new"
-get "/reduce", :controller => 'reduce', :action => "index"
+
 
 
   # Routes for the Item resource:
@@ -31,12 +31,18 @@ get "/reduce", :controller => 'reduce', :action => "index"
   # DELETE
   get "/delete_item/:id", :controller => "items", :action => "destroy"
   #------------------------------
+
+#Routs for the Reduce function
+  # READ
+  get "/reduce", :controller => 'reduce', :action => "index"
   get "/items/:id/donate", :controller => "reduce", :action => "donate"
   get "/items/:id/trash", :controller => "reduce", :action => "trash"
   get "/items/:id/sell", :controller => "reduce", :action => "sell"
-  get "/reduce/:id/action_date", :controller => "reduce", :action => "action_date"
-  get "/reduce/action_date", :controller => "reduce", :action => "index"
+#UPDATE
+  post "/update_item/:id", :controller => "reduce", :action => "update"
 
+  # get "/reduce/:id/action_date", :controller => "reduce", :action => "action_date"
+  # get "/reduce/action_date", :controller => "reduce", :action => "index"
 # get "/update_item/:id", :controller => "reduce", :action => "update"
 
   # The priority is based upon order of creation: first created -> highest priority.

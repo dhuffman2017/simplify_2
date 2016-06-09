@@ -4,16 +4,10 @@
 
   </h1>
 </div>
-<div style='display:none'>
-  <%= @hate_items = @items.where("joy_level = 'Hate it'")
-  @meh_items = @items.where("joy_level = 'Meh'")
-  @love_items = @items.where("joy_level = 'I love it!'")
-  %>
-</div>
 <div class="row">
   <div class="col-md-12">
-    <table id = "Hate" class="table table-striped table-hover">
-      <tr> <h3>You hate these things...time to get rid of them!</h3>
+    <table class="table table-striped table-hover">
+      <tr><h3>You hate these things...time to get rid of them!</h3>
         <th>Name</th>
         <th>Picture</th>
         <th>Description</th>
@@ -22,35 +16,43 @@
         <!-- <th>Status</th> -->
         <!-- <th>Posted by</th> -->
         <th>Joy Level</th>
-        <th>
-          Purge Date!
-        </th>
-        <th>Actions</th>
+        <th>Schedule your purge date!</th>
       </tr>
 
-      <% @hate_items.each do |hate_item| %>
+      <% @items.where("joy_level = 'Hate it'").each do |item| %>
       <tr>
-        <td><%= hate_item.name %></td>
-        <td><%= hate_item.url_picture %></td>
-        <td><%= hate_item.description %></td>
-        <td><%= hate_item.category %></td>
-        <td><%= hate_item.location %></td>
-        <!-- <td><%= hate_item.status %></td> -->
-        <!-- <td><%= hate_item.posted_by %></td> -->
-        <td><%= hate_item.joy_level %></td>
-        <td>
+        <td><%= item.name %></td>
+        <td><%= item.url_picture %></td>
+        <td><%= item.description %></td>
+        <td><%= item.category %></td>
+        <td><%= item.location %></td>
+        <!-- <td><%= item.status %></td> -->
+        <!-- <td><%= item.posted_by %></td> -->
+        <td><%= item.joy_level %></td>
+        <form action="/update_item/<%= item.id %>" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <td class="form-group">
 
-          <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= hate_item.action_date %>">
-        </td>
+            <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= item.action_date %>">
+            <td>
+              <a class="btn btn-primary">Save!
+              </td>
+            </a>
+          </td>
+        </form>
         <td>
-          <a href="/items/<%= hate_item.id %>/donate" class="btn btn-primary">Donate</a>
-          <a href="/items/<%= hate_item.id %>/trash" class="btn btn-warning">Trash</a>
-          <a href="/items/<%= hate_item.id %>/sell" class="btn btn-danger" rel="nofollow">Sell</a>
+          <a href="/items/<%= item.id %>" class="">Show</a>
+          <a href="/items/<%= item.id %>/edit" class="">Edit</a>
+          <a href="/delete_item/<%= item.id %>" class="" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
-    <table id = "Meh" class="table table-striped table-hover">
+  </div>
+</div><div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
       <tr><h3>"Meh" complicates your life</h3>
         <th>Name</th>
         <th>Picture</th>
@@ -60,43 +62,34 @@
         <!-- <th>Status</th> -->
         <!-- <th>Posted by</th> -->
         <th>Joy Level</th>
-        <th>
-          Purge Date!
-        </th>
-        <th>Actions</th>
+        <th>Schedule your purge date!</th>
       </tr>
 
-      <% @meh_items.each do |meh_item| %>
+      <% @items.where("joy_level = 'Meh'").each do |item| %>
       <tr>
-        <td><%= meh_item.name %></td>
-        <td><%= meh_item.url_picture %></td>
-        <td><%= meh_item.description %></td>
-        <td><%= meh_item.category %></td>
-        <td><%= meh_item.location %></td>
-        <!-- <td><%= meh_item.status %></td> -->
-        <!-- <td><%= meh_item.posted_by %></td> -->
-        <td><%= meh_item.joy_level %></td>
-        <td>
+        <td><%= item.name %></td>
+        <td><%= item.url_picture %></td>
+        <td><%= item.description %></td>
+        <td><%= item.category %></td>
+        <td><%= item.location %></td>
+        <!-- <td><%= item.status %></td> -->
+        <!-- <td><%= item.posted_by %></td> -->
+        <td><%= item.joy_level %></td>
+        <td class="form-group">
 
-          <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= meh_item.action_date %>">
-          <a href="/reduce/<%= meh_item.id %>/action_date" class="btn btn-primary">Save
-          </a>
+          <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= item.action_date %>">
+          <td>
+            <a class="btn btn-primary">Save!
+            </a>
+          </td>
         </td>
         <td>
-          <a href="/items/<%= meh_item.id %>/donate" class="btn btn-primary">Donate
-          </a>
-          <!-- <input type="date" id="Donate">Donate</input> -->
-
-          <a href="/items/<%= meh_item.id %>/trash" class="btn btn-warning">Trash</a>
-          <a href="/items/<%= meh_item.id %>/sell" class="btn btn-danger" rel="nofollow">Sell</a>
+          <a href="/items/<%= item.id %>" class="">Show</a>
+          <a href="/items/<%= item.id %>/edit" class="">Edit</a>
+          <a href="/delete_item/<%= item.id %>" class="" rel="nofollow">Delete</a>
         </td>
       </tr>
-
-      <%  meh_item.save%>
-
-        
       <% end %>
     </table>
   </div>
 </div>
-<a href="/items/new" class="btn btn-lg btn-success">Add Item</a>

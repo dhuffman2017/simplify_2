@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1>
+    Reduce, Relax
+
+  </h1>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr><h3>You hate these things...time to get rid of them!</h3>
+        <th>Name</th>
+        <th>Picture</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Location</th>
+        <!-- <th>Status</th> -->
+        <!-- <th>Posted by</th> -->
+        <th>Joy Level</th>
+        <th>Schedule your purge date!</th>
+      </tr>
+
+      <% @items.where("joy_level = 'Hate it'") do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.url_picture %></td>
+        <td><%= item.description %></td>
+        <td><%= item.category %></td>
+        <td><%= item.location %></td>
+        <!-- <td><%= item.status %></td> -->
+        <!-- <td><%= item.posted_by %></td> -->
+        <td><%= item.joy_level %></td>
+        <td class="form-group">
+
+          <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= hate_item.action_date %>">
+          <a class="btn btn-primary">Save
+          </a>
+        </td>
+        <td>
+          <a href="/items/<%= item.id %>" class="btn btn-primary">Show</a>
+          <a href="/items/<%= item.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_item/<%= item.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
