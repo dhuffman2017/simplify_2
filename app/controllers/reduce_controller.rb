@@ -22,9 +22,9 @@ class ReduceController < ApplicationController
     @item.action_date = params[:action_date]
 
     if @item.save
-      redirect_to "/reduce", :notice => "Item updated successfully."
+      redirect_to "/reduce", :notice => "Scheduled - It's Outta Here!!"
     else
-      render 'index'
+      redirect_to "/reduce", :notice => "Invalid Entry!"
     end
   end
 
@@ -43,7 +43,7 @@ class ReduceController < ApplicationController
     #   @item.joy_level = params[:joy_level]
     @item.action_date = params[:action_date]
     if @item.save
-      redirect_to "/reduce", :notice => "Item updated successfully."
+      redirect_to "/reduce", :notice => "Scheduled - It's Outta Here!!"
     else
       redirect_to "/reduce", :notice => "Date not updated!"
     end
