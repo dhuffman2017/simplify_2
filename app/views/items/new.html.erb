@@ -54,7 +54,6 @@
           <%=  select_tag "category", options_for_select( ["","Furniture", "My Clothes", "Kid Stuff", "Random"], :class => "form-control") %>
 
         </div>
-        <!-- <input type="text" id="location" name="category" placeholder="Category" class="form-control" value="<%= @item.category %>"> -->
 
       </div>
 
@@ -68,22 +67,22 @@
       </div>
 
       <!-- Label and input for status -->
-      <!-- <div class="form-group">
-      <label for="status" class="control-label">
-      Status
-    </label>
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Removing this item?
+        </label>
 
-    <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @item.status %>">
-  </div> -->
+          <%=  select_tag "status", options_for_select( ["","Donate", "Trash", "Sell"], :class => "form-control") %>
+      </div>
 
   <!-- Label and input for posted_by -->
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="posted_by" class="control-label">
       Posted by
     </label>
 
     <input type="text" id="posted_by" name="posted_by" placeholder="Posted by" class="form-control" value="<%= @item.posted_by %>">
-  </div>
+  </div> -->
 
   <!-- Label and input for joy_level -->
   <div class="form-group">

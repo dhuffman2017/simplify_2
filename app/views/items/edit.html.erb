@@ -67,10 +67,10 @@
       <!-- Label and input for status -->
       <div class="form-group">
         <label for="status" class="control-label">
-          Status
+          Remove this item?
         </label>
 
-        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @item.status %>">
+          <%=  select_tag "status", options_for_select( ["","Donate", "Trash", "Sell"], :class => "form-control") %>
       </div>
 
       <!-- Label and input for posted_by -->

@@ -10,10 +10,10 @@
       <tr><h3>You hate these things...time to get rid of them!</h3>
         <th>Name</th>
         <th>Picture</th>
-        <th>Description</th>
+        <!-- <th>Description</th>
         <th>Category</th>
-        <th>Location</th>
-        <!-- <th>Status</th> -->
+        <th>Location</th> -->
+        <th>Method</th>
         <!-- <th>Posted by</th> -->
         <th>Joy Level</th>
         <th>Schedule your purge date!</th>
@@ -23,21 +23,21 @@
       <tr>
         <td><%= item.name %></td>
         <td><%= item.url_picture %></td>
-        <td><%= item.description %></td>
+        <!-- <td><%= item.description %></td>
         <td><%= item.category %></td>
-        <td><%= item.location %></td>
-        <!-- <td><%= item.status %></td> -->
+        <td><%= item.location %></td> -->
+        <td><%= item.status %></td>
         <!-- <td><%= item.posted_by %></td> -->
         <td><%= item.joy_level %></td>
-        <form action="/update_item/<%= item.id %>" method="post">
+        <form action="/update_reduce/<%= item.id %>" method="post">
           <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
           <td class="form-group">
 
             <input type="date" id="action_date" name="action_date" placeholder="Action Date" class="form-control" value="<%= item.action_date %>">
             <td>
-              <a class="btn btn-primary">Save!
-              </a>
+              <button class="btn btn-primary">Save!
+              </button>
             </td>
           </td>
         </form>
@@ -56,10 +56,10 @@
       <tr><h3>"Meh" complicates your life</h3>
         <th>Name</th>
         <th>Picture</th>
-        <th>Description</th>
+        <!-- <th>Description</th>
         <th>Category</th>
-        <th>Location</th>
-        <!-- <th>Status</th> -->
+        <th>Location</th> -->
+        <th>Method</th>
         <!-- <th>Posted by</th> -->
         <th>Joy Level</th>
         <th>Schedule your purge date!</th>
@@ -69,10 +69,10 @@
       <tr>
         <td><%= item.name %></td>
         <td><%= item.url_picture %></td>
-        <td><%= item.description %></td>
+        <!-- <td><%= item.description %></td>
         <td><%= item.category %></td>
-        <td><%= item.location %></td>
-        <!-- <td><%= item.status %></td> -->
+        <td><%= item.location %></td> -->
+        <td><%= item.status %></td>
         <!-- <td><%= item.posted_by %></td> -->
         <td><%= item.joy_level %></td>
         <td class="form-group">
