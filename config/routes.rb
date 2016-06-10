@@ -39,13 +39,15 @@ Rails.application.routes.draw do
   get "/items/:id/trash", :controller => "reduce", :action => "trash"
   get "/items/:id/sell", :controller => "reduce", :action => "sell"
   #UPDATE
-  get "/reduce/:id", :controller => 'reduce', :action => "index" 
-  post "/update_item/:id", :controller => "reduce", :action => "update"
+  get "/reduce/:id", :controller => 'reduce', :action => "index"
+  post "/update_reduce/:id", :controller => "reduce", :action => "update"
+  # DELETE
+  get "/delete_reduce/:id", :controller => "reduce", :action => "destroy"
+  # 
+  # Routes for the Scheduled function
+# READ
 
-  # get "/reduce/:id/action_date", :controller => "reduce", :action => "action_date"
-  # get "/reduce/action_date", :controller => "reduce", :action => "index"
-  # get "/update_item/:id", :controller => "reduce", :action => "update"
-
+get "/schedule", :controller => 'reduce', :action => 'schedule'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
