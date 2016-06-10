@@ -24,7 +24,7 @@ class ReduceController < ApplicationController
     if @item.save
       redirect_to "/reduce", :notice => "Scheduled - It's Outta Here!!"
     else
-      redirect_to "/reduce", :notice => "Invalid Entry!"
+        redirect_to "/reduce", :notice => "Invalid Entry!"
     end
   end
 
@@ -45,13 +45,21 @@ class ReduceController < ApplicationController
     if @item.save
       redirect_to "/reduce", :notice => "Scheduled - It's Outta Here!!"
     else
-      redirect_to "/reduce", :notice => "Date not updated!"
+      redirect_to "/reduce"
     end
   end
-def schedule
-  @item = Item.find(params[:id])
-  render 'schedule'
-end
+  def destroy
+    @item = Item.find(params[:id])
+
+    @item.destroy
+
+    redirect_to "/reduce", :notice => "Item purged! Ahhhh....."
+  end
+
+  def schedule
+    @item = Item.find(params[:id])
+    render 'schedule'
+  end
 
   def donate
     render 'donate'

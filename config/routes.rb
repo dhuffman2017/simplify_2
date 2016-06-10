@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   #UPDATE
   get "/reduce/:id", :controller => 'reduce', :action => "index"
   post "/update_reduce/:id", :controller => "reduce", :action => "update"
+  # DELETE
+  get "/delete_reduce/:id", :controller => "reduce", :action => "destroy"
   # 
   # Routes for the Scheduled function
 # READ

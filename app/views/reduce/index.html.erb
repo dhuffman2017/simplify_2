@@ -17,7 +17,13 @@
         <!-- <th>Posted by</th> -->
         <th>Joy Level</th>
         <th>Schedule your purge date!</th>
-      </tr>
+      <th>
+
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
 
       <% @items.where("joy_level = 'Hate it'").each do |item| %>
       <tr>
@@ -42,9 +48,9 @@
           </td>
         </form>
         <td>
+          <a href="/delete_reduce/<%= item.id %>" class="btn btn-danger" rel="nofollow">Purged!</a>
           <a href="/items/<%= item.id %>" class="">Show</a>
           <a href="/items/<%= item.id %>/edit" class="">Edit</a>
-          <a href="/delete_item/<%= item.id %>" class="" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
@@ -63,6 +69,12 @@
         <!-- <th>Posted by</th> -->
         <th>Joy Level</th>
         <th>Schedule your purge date!</th>
+        <th>
+
+        </th>
+        <th>
+          Actions
+        </th>
       </tr>
 
       <% @items.where("joy_level = 'Meh'").each do |item| %>
@@ -88,9 +100,9 @@
           </td>
         </form>
         <td>
+          <a href="/delete_reduce/<%= item.id %>" class="btn btn-danger" rel="nofollow">Purged!</a>
           <a href="/items/<%= item.id %>" class="">Show</a>
           <a href="/items/<%= item.id %>/edit" class="">Edit</a>
-          <a href="/delete_item/<%= item.id %>" class="" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
